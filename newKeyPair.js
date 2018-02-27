@@ -1,0 +1,11 @@
+const process = require('process')
+const {createContext, CryptoFactory} = require('sawtooth-sdk/signing')
+
+const context = createContext('secp256k1')
+const privateKey = context.newRandomPrivateKey()
+console.log('Private key:')
+console.log(privateKey.asHex())
+const signer = new CryptoFactory(context).newSigner(privateKey)
+const publicKey = signer.getPublicKey().asHex()
+console.log('Public key:')
+console.log(publicKey)

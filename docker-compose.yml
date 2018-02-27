@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  tp-study:
+    image: node:latest
+    container_name: tp-study
+    volumes:
+      - .:/tp-study
+    working_dir: /tp-study
+    entrypoint: ['tail', '-f', '/dev/null']
+    networks:
+      - sawtooth
+
+networks:
+  sawtooth:
+    external:
+      name: sawtooth
